@@ -1,0 +1,423 @@
+18:03:37 RQ worker 'rq:worker:a1af5f708a494d968bf87f639894ee4c.ip-172-31-9-132.6430.long' started, version 0.12.0
+18:03:37 *** Listening on long...
+18:03:37 Cleaning registries for queue: long
+18:03:37 RQ worker 'rq:worker:767ec4de61484714a085e57c761ac0dd.ip-172-31-9-132.6429.default' started, version 0.12.0
+18:03:37 *** Listening on default...
+18:03:37 Cleaning registries for queue: default
+18:03:37 RQ worker 'rq:worker:51692f154feb42ad8897c615e02a89cb.ip-172-31-9-132.6431.short' started, version 0.12.0
+18:03:37 *** Listening on short...
+18:03:37 Cleaning registries for queue: short
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 177, in _read_from_socket
+    raise socket.error(SERVER_CLOSED_CONNECTION_ERROR)
+OSError: Connection closed by server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 668, in execute_command
+    return self.parse_response(connection, command_name, **options)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 680, in parse_response
+    response = connection.read_response()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 624, in read_response
+    response = self._parser.read_response()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 284, in read_response
+    response = self._buffer.readline()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 216, in readline
+    self._read_from_socket()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 191, in _read_from_socket
+    (e.args,))
+redis.exceptions.ConnectionError: Error while reading from socket: ('Connection closed by server.',)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 486, in work
+    result = self.dequeue_job_and_maintain_ttl(timeout)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 519, in dequeue_job_and_maintain_ttl
+    job_class=self.job_class)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/queue.py", line 460, in dequeue_any
+    result = cls.lpop(queue_keys, timeout, connection=connection)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/queue.py", line 410, in lpop
+    result = connection.blpop(queue_keys, timeout)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 1269, in blpop
+    return self.execute_command('BLPOP', *keys)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2879, in execute
+    return execute(conn, stack, raise_on_error)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2749, in _execute_transaction
+    connection.send_packed_command(all_cmds)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 99, in <module>
+    main()
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 18, in main
+    click.Group(commands=commands)(prog_name='bench')
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 764, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/commands/scheduler.py", line 167, in start_worker
+    start_worker(queue, quiet = quiet)
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/utils/background_jobs.py", line 151, in start_worker
+    Worker(queues, name=get_worker_name(queue)).work(logging_level = logging_level)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 502, in work
+    self.register_death()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 300, in register_death
+    p.execute()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2894, in execute
+    return execute(conn, stack, raise_on_error)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2749, in _execute_transaction
+    connection.send_packed_command(all_cmds)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 177, in _read_from_socket
+    raise socket.error(SERVER_CLOSED_CONNECTION_ERROR)
+OSError: Connection closed by server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 668, in execute_command
+    return self.parse_response(connection, command_name, **options)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 680, in parse_response
+    response = connection.read_response()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 624, in read_response
+    response = self._parser.read_response()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 284, in read_response
+    response = self._buffer.readline()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 216, in readline
+    self._read_from_socket()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 191, in _read_from_socket
+    (e.args,))
+redis.exceptions.ConnectionError: Error while reading from socket: ('Connection closed by server.',)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 486, in work
+    result = self.dequeue_job_and_maintain_ttl(timeout)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 519, in dequeue_job_and_maintain_ttl
+    job_class=self.job_class)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/queue.py", line 460, in dequeue_any
+    result = cls.lpop(queue_keys, timeout, connection=connection)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/queue.py", line 410, in lpop
+    result = connection.blpop(queue_keys, timeout)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 1269, in blpop
+    return self.execute_command('BLPOP', *keys)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2879, in execute
+    return execute(conn, stack, raise_on_error)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2749, in _execute_transaction
+    connection.send_packed_command(all_cmds)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 99, in <module>
+    main()
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 18, in main
+    click.Group(commands=commands)(prog_name='bench')
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 764, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/commands/scheduler.py", line 167, in start_worker
+    start_worker(queue, quiet = quiet)
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/utils/background_jobs.py", line 151, in start_worker
+    Worker(queues, name=get_worker_name(queue)).work(logging_level = logging_level)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 502, in work
+    self.register_death()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 300, in register_death
+    p.execute()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2894, in execute
+    return execute(conn, stack, raise_on_error)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2749, in _execute_transaction
+    connection.send_packed_command(all_cmds)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 177, in _read_from_socket
+    raise socket.error(SERVER_CLOSED_CONNECTION_ERROR)
+OSError: Connection closed by server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 668, in execute_command
+    return self.parse_response(connection, command_name, **options)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 680, in parse_response
+    response = connection.read_response()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 624, in read_response
+    response = self._parser.read_response()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 284, in read_response
+    response = self._buffer.readline()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 216, in readline
+    self._read_from_socket()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 191, in _read_from_socket
+    (e.args,))
+redis.exceptions.ConnectionError: Error while reading from socket: ('Connection closed by server.',)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 486, in work
+    result = self.dequeue_job_and_maintain_ttl(timeout)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 519, in dequeue_job_and_maintain_ttl
+    job_class=self.job_class)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/queue.py", line 460, in dequeue_any
+    result = cls.lpop(queue_keys, timeout, connection=connection)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/queue.py", line 410, in lpop
+    result = connection.blpop(queue_keys, timeout)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 1269, in blpop
+    return self.execute_command('BLPOP', *keys)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 673, in execute_command
+    connection.send_command(*args)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 610, in send_command
+    self.send_packed_command(self.pack_command(*args))
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2879, in execute
+    return execute(conn, stack, raise_on_error)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2749, in _execute_transaction
+    connection.send_packed_command(all_cmds)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 484, in connect
+    sock = self._connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 541, in _connect
+    raise err
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 529, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 99, in <module>
+    main()
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/utils/bench_helper.py", line 18, in main
+    click.Group(commands=commands)(prog_name='bench')
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 764, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 717, in main
+    rv = self.invoke(ctx)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 1137, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 956, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/click/core.py", line 555, in invoke
+    return callback(*args, **kwargs)
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/commands/scheduler.py", line 167, in start_worker
+    start_worker(queue, quiet = quiet)
+  File "/home/frappe-dev/frappe-bench/apps/frappe/frappe/utils/background_jobs.py", line 151, in start_worker
+    Worker(queues, name=get_worker_name(queue)).work(logging_level = logging_level)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 502, in work
+    self.register_death()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/rq/worker.py", line 300, in register_death
+    p.execute()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2894, in execute
+    return execute(conn, stack, raise_on_error)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/client.py", line 2749, in _execute_transaction
+    connection.send_packed_command(all_cmds)
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 585, in send_packed_command
+    self.connect()
+  File "/home/frappe-dev/frappe-bench/env/lib/python3.6/site-packages/redis/connection.py", line 489, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:11000. Connection refused.
+03:14:43 RQ worker 'rq:worker:9a175defebd34e0494559556a47448ff.ip-172-31-9-238.1677.default' started, version 0.12.0
+03:14:43 *** Listening on default...
+03:14:43 Cleaning registries for queue: default
+03:14:43 RQ worker 'rq:worker:80e0f8601d154ff6bfb4980555fa7ae1.ip-172-31-9-238.1679.long' started, version 0.12.0
+03:14:43 *** Listening on long...
+03:14:43 Cleaning registries for queue: long
+03:14:43 RQ worker 'rq:worker:78f815a25cf6483ca1c3e3ab4f6cae47.ip-172-31-9-238.1680.short' started, version 0.12.0
+03:14:43 *** Listening on short...
+03:14:43 Cleaning registries for queue: short
+03:36:09 Warm shut down requested
+03:36:09 Warm shut down requested
+03:36:09 Warm shut down requested
+03:36:15 RQ worker 'rq:worker:be9a75c694f6450683080c90cfcdf227.ip-172-31-9-238.9082.short' started, version 0.12.0
+03:36:15 *** Listening on short...
+03:36:15 Cleaning registries for queue: short
+03:36:15 RQ worker 'rq:worker:c165768c04fb41369af119e6ad8ff34a.ip-172-31-9-238.9081.long' started, version 0.12.0
+03:36:15 *** Listening on long...
+03:36:15 Cleaning registries for queue: long
+03:36:15 RQ worker 'rq:worker:c08649d48e7a412896434495ad9a8f6d.ip-172-31-9-238.9080.default' started, version 0.12.0
+03:36:15 *** Listening on default...
+03:36:15 Cleaning registries for queue: default

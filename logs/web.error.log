@@ -1,0 +1,32 @@
+[2021-05-11 18:03:32 +0000] [6249] [INFO] Starting gunicorn 19.10.0
+[2021-05-11 18:03:32 +0000] [6249] [INFO] Listening at: http://127.0.0.1:8000 (6249)
+[2021-05-11 18:03:32 +0000] [6249] [INFO] Using worker: sync
+[2021-05-11 18:03:32 +0000] [6425] [INFO] Booting worker with pid: 6425
+[2021-05-11 18:03:32 +0000] [6426] [INFO] Booting worker with pid: 6426
+[2021-05-11 18:03:32 +0000] [6249] [INFO] Handling signal: term
+[2021-05-11 18:03:32 +0000] [6426] [INFO] Worker exiting (pid: 6426)
+[2021-05-11 18:03:32 +0000] [6425] [INFO] Worker exiting (pid: 6425)
+[2021-05-11 18:03:32 +0000] [6249] [INFO] Shutting down: Master
+[2021-05-11 18:03:36 +0000] [6458] [INFO] Starting gunicorn 19.10.0
+[2021-05-11 18:03:36 +0000] [6458] [INFO] Listening at: http://127.0.0.1:8000 (6458)
+[2021-05-11 18:03:36 +0000] [6458] [INFO] Using worker: sync
+[2021-05-11 18:03:36 +0000] [6484] [INFO] Booting worker with pid: 6484
+[2021-05-11 18:03:36 +0000] [6485] [INFO] Booting worker with pid: 6485
+[2021-05-11 19:18:07 +0000] [6458] [INFO] Handling signal: term
+[2021-05-11 19:18:07 +0000] [6484] [INFO] Worker exiting (pid: 6484)
+[2021-05-11 19:18:07 +0000] [6485] [INFO] Worker exiting (pid: 6485)
+[2021-05-11 19:18:07 +0000] [6458] [INFO] Shutting down: Master
+[2021-05-13 03:14:41 +0000] [1682] [INFO] Starting gunicorn 19.10.0
+[2021-05-13 03:14:41 +0000] [1682] [INFO] Listening at: http://127.0.0.1:8000 (1682)
+[2021-05-13 03:14:41 +0000] [1682] [INFO] Using worker: sync
+[2021-05-13 03:14:42 +0000] [2002] [INFO] Booting worker with pid: 2002
+[2021-05-13 03:14:42 +0000] [2003] [INFO] Booting worker with pid: 2003
+[2021-05-13 03:36:10 +0000] [1682] [INFO] Handling signal: term
+[2021-05-13 03:36:10 +0000] [2003] [INFO] Worker exiting (pid: 2003)
+[2021-05-13 03:36:10 +0000] [2002] [INFO] Worker exiting (pid: 2002)
+[2021-05-13 03:36:11 +0000] [1682] [INFO] Shutting down: Master
+[2021-05-13 03:36:14 +0000] [9112] [INFO] Starting gunicorn 19.10.0
+[2021-05-13 03:36:14 +0000] [9112] [INFO] Listening at: http://127.0.0.1:8000 (9112)
+[2021-05-13 03:36:14 +0000] [9112] [INFO] Using worker: sync
+[2021-05-13 03:36:14 +0000] [9130] [INFO] Booting worker with pid: 9130
+[2021-05-13 03:36:14 +0000] [9132] [INFO] Booting worker with pid: 9132
